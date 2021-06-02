@@ -467,20 +467,6 @@ def recommendation_model(df,rf):
     
 if __name__ == '__main__':
 
-        #function to recommend
-        # stock_model()
 
-        df=stock_model()
-        stock_tickers=df.iloc[:,0]
-        list1=""
-        for stock in stock_tickers:
-            # print(stock)
-            list1=list1+" "+stock
-            # s=yf.Ticker(stock).info["sector"]
-            # y=s.info["sector"]
-            # list1.append(y)
             
-        # app.run(host="127.0.0.19",port=8080,debug=True)
-        # print))
-        s=yf.Ticker(list1).info["sector"]
-        y=s.info["sector"]
+        app.run(debug=True)
