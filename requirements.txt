@@ -75,7 +75,7 @@ poyo==0.5.0
 prompt-toolkit==3.0.17
 psutil==5.8.0
 ptyprocess==0.7.0
-pycodestyle==2.6.0
+pycodestyle==2.7.0
 pycparser==2.20
 pydocstyle==6.1.1
 pyflakes==2.2.0
