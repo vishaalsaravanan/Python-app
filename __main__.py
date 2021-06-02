@@ -321,7 +321,7 @@ def stock_model():
         # symbol="AAPL"
         actual_date = actual_date.strftime("%Y-%m-%d")
         past_date = past_date.strftime("%Y-%m-%d")
-        filtered_tickers = get_tickers_filtered(mktcap_min=10000, mktcap_max=10000000)
+        filtered_tickers = get_tickers_filtered(mktcap_min=80000, mktcap_max=10000000)
         filtered_tickers=list(dict.fromkeys(filtered_tickers))
         total_tickers=len(filtered_tickers)
         model_error=[]
