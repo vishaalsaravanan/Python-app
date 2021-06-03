@@ -62,12 +62,12 @@ def index():
     
     a=5
     b=10
-    return "Hello,Beautiful"
+    #return "Hello,Beautiful"
     # sum=add(a,b)
-    #df=stock_model()
+    df=stock_model()
     
     
-    #return df.to_html(header="true", table_id="table")
+    return df.to_html(header="true", table_id="table")
    
 
   
