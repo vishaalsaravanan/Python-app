@@ -63,14 +63,16 @@ def index():
     a=5
     b=10
     #return "Hello,Beautiful"
-    # sum=add(a,b)
-    df=stock_model()
+    sum=add(a,b)
+    # df=stock_model()
+    return sum
     
-    
-    return df.to_html(header="true", table_id="table")
+    # return df.to_html(header="true", table_id="table")
    
 
-  
+def add(a,b):
+    return str(a+b)
+    
 def get_tickers_filtered(mktcap_min=None, mktcap_max=None, sectors=None):
     tickers_list = []
     for exchange in _EXCHANGE_LIST:
