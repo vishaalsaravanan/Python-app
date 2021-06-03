@@ -16,6 +16,7 @@ from pandas_datareader import data
 from flask import Flask, request, render_template, session, redirect
 from urllib.request import urlopen
 from lxml.html import parse
+import time
 
 application=Flask(__name__)
 
@@ -330,6 +331,8 @@ def stock_model():
         # total_tickers=len(filtered_tickers)
         # model_error=[]
         # add_metric=np.array([])
+        timelen=time.time()
+
         rf=0.02
         # Final_Metric=pd.read_csv('Final_Metric.csv')
         # Final_Metric.drop(columns=['Unnamed: 0'],inplace=True)
@@ -393,6 +396,7 @@ def stock_model():
         # df=historic_dataframe.copy()
         #Pass on to the recommendation function
         recommendation_array=recommendation_model(df_h, rf)
+        print(time.time()-timelen)
         # return dataframe,risk_factor 
         return recommendation_array
        
@@ -428,8 +432,8 @@ def recommendation_model(df,rf):
         p_vol = [] # Define an empty array for portfolio volatility
         p_weights = [] # Define an empty array for asset weights
         num_assets = len(df.columns)
-        num_portfolios = 10000
-
+        num_portfolios = 1000
+        time1=time.time()
         for portfolio in range(num_portfolios):
             weights = np.random.random(num_assets)
             weights = weights/np.sum(weights)
@@ -441,7 +445,7 @@ def recommendation_model(df,rf):
             sd = np.sqrt(var) # Daily standard deviation
             ann_sd = sd*np.sqrt(250) # Annual standard deviation = volatility
             p_vol.append(ann_sd)
-
+        print(time.time()-time1)
         data = {'Returns':p_ret, 'Volatility':p_vol}
 
         for counter, symbol in enumerate(df.columns.tolist()):
