@@ -17,6 +17,7 @@ from flask import Flask, request, render_template, session, redirect
 from urllib.request import urlopen
 from lxml.html import parse
 import time
+import json
 
 application=Flask(__name__)
 
@@ -66,9 +67,11 @@ def index():
     #return "Hello,Beautiful"
     # sum=add(a,b)
     df=stock_model()
-    # return sum
+    df=df.to_json()
     
-    return df.to_html(header="true", table_id="table")
+    return render_template("index.html",data=df)
+
+    #return df.to_html(header="true", table_id="table")
    
 
 def add(a,b):
