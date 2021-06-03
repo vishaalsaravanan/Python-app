@@ -62,7 +62,7 @@ def index():
     
     a=5
     b=10
-    return "Hello World"
+    return "Hello,Beautiful"
     # sum=add(a,b)
     #df=stock_model()
     
