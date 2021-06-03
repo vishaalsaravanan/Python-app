@@ -17,7 +17,7 @@ from flask import Flask, request, render_template, session, redirect
 from urllib.request import urlopen
 from lxml.html import parse
 
-app=Flask(__name__)
+application=Flask(__name__)
 
 # pip list --format=freeze >requirements.txt
 model,accuracy,bs_error,squared_error,rms_error=0,0,0,0,0
@@ -57,7 +57,7 @@ params = (
     ('download', 'true'),
 )
 
-@app.route('/')
+@application.route('/')
 def index():
     
     a=5
@@ -471,4 +471,4 @@ if __name__ == '__main__':
 
 
             
-        app.run(debug=True)
+        application.run(debug=True)
