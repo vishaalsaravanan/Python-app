@@ -484,4 +484,4 @@ if __name__ == '__main__':
 
 
           # stock_model() 
-        application.run(host="127.0.0.19",debug=True)
+        application.run(debug=True)

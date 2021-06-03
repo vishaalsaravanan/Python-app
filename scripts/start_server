@@ -1,3 +1,5 @@
 #!/bin/bash
 service httpd start
+cd ..
+python3 Python-app/application.py
 
