@@ -63,7 +63,7 @@ params = (
 def index():
     
     a=5
-    b=10
+    b=100
     #return "Hello,Beautiful"
     # sum=add(a,b)
     #df=stock_model()
