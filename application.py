@@ -1,7 +1,7 @@
-import quandl
+
 import yfinance as yf
 import datetime as dt
-import math
+
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing,metrics
@@ -9,20 +9,16 @@ from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression,LassoLars,Ridge
 from sklearn.ensemble import GradientBoostingRegressor,RandomForestRegressor
 from sklearn.model_selection import train_test_split
-from enum import Enum
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+
 import requests
 from pandas_datareader import data
 from flask import Flask, request, render_template, session, redirect
-from urllib.request import urlopen
-from lxml.html import parse
+
 import time
 import json
-import boto3
 
 application=Flask(__name__)
-
-
 
 
 
@@ -71,10 +67,13 @@ def index():
     b=100
     #return "Hello,Beautiful"
     # sum=add(a,b)
-    df=stock_model()
-    return render_template("index.html",data=df)
+    # df=stock_model()
+    dataf=pd.read_csv("static/Dataset.csv")
+    dataf=dataf.to_json()
+    str1=json.loads(dataf)
+    # return render_template("index.html",data=df)
     # return str(a+b)
-
+    return str1
     # return df.to_html(header="true", table_id="table")
    
 
