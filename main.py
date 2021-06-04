@@ -1,7 +1,7 @@
-
+import quandl
 import yfinance as yf
 import datetime as dt
-
+import math
 import pandas as pd
 import numpy as np
 from sklearn import preprocessing,metrics
@@ -9,16 +9,19 @@ from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression,LassoLars,Ridge
 from sklearn.ensemble import GradientBoostingRegressor,RandomForestRegressor
 from sklearn.model_selection import train_test_split
-
-
+from enum import Enum
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 import requests
 from pandas_datareader import data
 from flask import Flask, request, render_template, session, redirect
-
+from urllib.request import urlopen
+from lxml.html import parse
 import time
 import json
 
-application=Flask(__name__)
+app=Flask(__name__)
+
+
 
 
 
@@ -60,20 +63,17 @@ params = (
     ('download', 'true'),
 )
 
-@application.route('/')
+@app.route('/')
 def index():
     
     a=5
     b=100
     #return "Hello,Beautiful"
     # sum=add(a,b)
-    # df=stock_model()
-    dataf=pd.read_csv("static/Dataset.csv")
-    dataf=dataf.to_json()
-    str1=json.loads(dataf)
-    # return render_template("index.html",data=df)
+    df=stock_model()
+    return render_template("index.html",data=df)
     # return str(a+b)
-    return str1
+
     # return df.to_html(header="true", table_id="table")
    
 
@@ -395,7 +395,31 @@ def stock_model():
             
         # add_df=pd.DataFrame(add_metric)
         # add_df.to_csv("Final_Metric.csv")
-
+#         client = boto3.client(
+#             's3',
+#             aws_access_key_id = 'AKIAS2U4OKU5KHLXKW67',
+#             aws_secret_access_key = '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',
+#             region_name = 'us-east-2'
+#         )
+            
+#         # Creating the high level object oriented interface
+#         resource = boto3.resource(
+#             's3',
+#             aws_access_key_id = 'AKIAS2U4OKU5KHLXKW67',
+#             aws_secret_access_key = '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',
+#             region_name = 'us-east-2'
+#         )
+#         clientResponse = client.list_buckets()
+#         # Print the bucket names one by one
+#         print('Printing bucket names...')
+#         for bucket in clientResponse['Buckets']:
+#             print(f'Bucket Name: {bucket["Name"]}')
+            
+#         obj = client.get_object(
+#             Bucket = 'sql-server-shack-demo-1app',
+#             Key = 'Historic_Data.csv'
+# )
+#         df_h= pd.read_csv(obj['Body'])
         # print('Printing the data frame...')
         # print(data)
    
@@ -490,4 +514,4 @@ if __name__ == '__main__':
 
 
           # stock_model() 
-        application.run(debug=True)
+        app.run(debug=True)
