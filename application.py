@@ -66,10 +66,9 @@ def index():
     b=10
     #return "Hello,Beautiful"
     # sum=add(a,b)
-    df=stock_model()
-    df=df.to_json()
-    
-    return render_template("index.html",data=df)
+    #df=stock_model()
+    #return render_template("index.html",data=df)
+    return str(a+b)
 
     #return df.to_html(header="true", table_id="table")
    
