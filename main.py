@@ -395,20 +395,7 @@ def stock_model():
             
         # add_df=pd.DataFrame(add_metric)
         # add_df.to_csv("Final_Metric.csv")
-#         client = boto3.client(
-#             's3',
-#             aws_access_key_id = 'AKIAS2U4OKU5KHLXKW67',
-#             aws_secret_access_key = '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',
-#             region_name = 'us-east-2'
-#         )
-            
-#         # Creating the high level object oriented interface
-#         resource = boto3.resource(
-#             's3',
-#             aws_access_key_id = 'AKIAS2U4OKU5KHLXKW67',
-#             aws_secret_access_key = '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',
-#             region_name = 'us-east-2'
-#         )
+
 #         clientResponse = client.list_buckets()
 #         # Print the bucket names one by one
 #         print('Printing bucket names...')
